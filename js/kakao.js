@@ -1,5 +1,6 @@
 const mapContainer = document.querySelector("#map");
 const btnToggle = document.querySelector(".trafficToggle");
+const btnReset = document.querySelector(".btnReset");
 
 const mapOption = {
 	center: new kakao.maps.LatLng(37.51273247893501, 127.06076771586082),
@@ -36,6 +37,8 @@ btnToggle.addEventListener("click", e => {
 		e.target.innerText = "trafiic ON";
 	}
 });
+//리셋 버튼 클릭시 지도위치 가운데로 이동
+btnReset.addEventListener("click", () => map.panTo(mapOption.center));
 
 //roadview setting
 const viewContainer = document.querySelector("#view");

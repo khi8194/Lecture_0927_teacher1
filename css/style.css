@@ -31,7 +31,8 @@ main h1 {
   margin-bottom: 70px;
 }
 main .trafficToggle,
-main .viewToggle {
+main .viewToggle,
+main .btnReset {
   display: inline-block;
   padding: 10px 16px;
   border: none;
@@ -44,7 +45,8 @@ main .viewToggle {
   cursor: pointer;
 }
 main .trafficToggle.on,
-main .viewToggle.on {
+main .viewToggle.on,
+main .btnReset.on {
   background-image: linear-gradient(45deg, #f049ff, #f307ac);
   box-shadow: 10px 10px 20px rgba(240, 73, 255, 0.5);
 }
