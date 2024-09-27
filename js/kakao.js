@@ -45,3 +45,11 @@ const viewClient = new kakao.maps.RoadviewClient();
 viewClient.getNearestPanoId(mapOption.center, 50, panoId => {
 	view.setPanoId(panoId, mapOption.center);
 });
+
+//로드뷰에 마커 올리기
+kakao.maps.event.addListener(view, "init", () => {
+	new kakao.maps.Marker({
+		position: mapOption.center,
+		map: view //기존 마커생성과 동일하고 map부분에만 view인스턴스 연결
+	});
+});
