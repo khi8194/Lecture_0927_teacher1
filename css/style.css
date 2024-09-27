@@ -61,10 +61,12 @@ main .frame figure {
   position: absolute;
   top: 0px;
   left: 0px;
-  display: none;
+  opacity: 0;
+  z-index: 1;
 }
 main .frame figure.on {
-  display: block;
+  opacity: 1;
+  z-index: 2;
 }
 
 /*# sourceMappingURL=style.css.map */

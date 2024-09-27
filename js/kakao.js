@@ -41,6 +41,8 @@ btnToggle.addEventListener("click", e => {
 const viewContainer = document.querySelector("#view");
 const view = new kakao.maps.Roadview(viewContainer);
 const viewClient = new kakao.maps.RoadviewClient();
+const btnViewToggle = document.querySelector(".viewToggle");
+const [mapEl, viewEl] = document.querySelectorAll(".frame > figure");
 
 viewClient.getNearestPanoId(mapOption.center, 50, panoId => {
 	view.setPanoId(panoId, mapOption.center);
@@ -52,4 +54,24 @@ kakao.maps.event.addListener(view, "init", () => {
 		position: mapOption.center,
 		map: view //기존 마커생성과 동일하고 map부분에만 view인스턴스 연결
 	});
+});
+
+//뷰토글 버튼 클릭시
+btnViewToggle.addEventListener("click", e => {
+	//자기 자신에 on클래스를 토글 처리
+	e.target.classList.toggle("on");
+
+	//현재 토글버튼에 on이 붙어있으면 view가 활성화 되어 있는 상태이기 때문에
+	if (e.target.classList.contains("on")) {
+		//버튼의 텍스트를 Roadview OFF라고 변경
+		e.target.innerText = "Roadeview OFF";
+		//view보임처리 , map숨기처리
+		viewEl.classList.add("on");
+		mapEl.classList.remove("on");
+		//else일떄는 위와 정반대 처리
+	} else {
+		e.target.innerText = "Roadeview ON";
+		viewEl.classList.remove("on");
+		mapEl.classList.add("on");
+	}
 });
