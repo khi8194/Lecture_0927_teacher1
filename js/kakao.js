@@ -32,6 +32,7 @@ window.addEventListener("resize", () => {
 
 	//리사이즈시 강제 토글버튼 초기화
 	btnToggle.classList.remove("on");
+	btnToggle.innerText = "traffic ON";
 });
 
 btnToggle.addEventListener("click", e => {
